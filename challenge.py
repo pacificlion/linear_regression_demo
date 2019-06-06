@@ -2,6 +2,7 @@ import pandas as pd
 from sklearn import linear_model
 import matplotlib.pyplot as plt
 from sklearn.metrics import mean_squared_error
+from sklearn.metrics import r2_score
 
 #read data
 dataframe = pd.read_csv('challenge_dataset.txt',header=None,names=['colA','colB'])
@@ -16,6 +17,7 @@ body_reg.fit(x_values, y_values)
 plt.scatter(x_values, y_values)
 y_predictions = body_reg.predict(x_values)
 mse = mean_squared_error(y_values, y_predictions)
-print(mse)
+print('mse:',mse)
+print('Score: ',r2_score(y_values, y_predictions))
 plt.plot(x_values, y_predictions)
 plt.show()
